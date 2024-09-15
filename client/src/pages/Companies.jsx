@@ -103,7 +103,7 @@ const CompaniesTable = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/companies")
+      .get("https://plantaintree-app-server.vercel.app/")
       .then((response) => {
         setCompanies(response.data.data);
         setLoading(false);

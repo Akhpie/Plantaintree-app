@@ -22,7 +22,7 @@ const EditCompanies = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/companies/${id}`)
+      .get(`https://plantaintree-app-server.vercel.app/${id}`)
       .then((response) => {
         setCompanyName(response.data.name);
         setCategory(response.data.category);
