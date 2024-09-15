@@ -18,7 +18,7 @@ const DeleteCompany = () => {
   const handleDeleteCompany = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5000/companies/${id}`)
+      .delete(`https://plantaintree-app-server.vercel.app/companies/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Company has been Deleted!", { variant: "success" });

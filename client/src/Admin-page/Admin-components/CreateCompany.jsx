@@ -15,7 +15,7 @@ const CreateCompany = () => {
   const handleSaveCompany = (values) => {
     setLoading(true);
     axios
-      .post("http://localhost:5000/companies", values)
+      .post("https://plantaintree-app-server.vercel.app/companies", values)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Company created successfully", { variant: "success" });
