@@ -12,9 +12,13 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "*",
   })
 );
+
+app.get("/", (req, res) => {
+  res.send("API is working!");
+});
 
 const uri = process.env.MONGODB_URI;
 
