@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2024",
+    "title": "Project Launch",
+    "subtitle": "Website",
+    "description": "Successfully launched the new website with modern features and improved user experience.",
+    "icon": "briefcase",
+    "iconColor": "#004d40"
+  },
+  {
+    "date": "2023",
+    "title": "React Certification",
+    "subtitle": "Certification",
+    "description": "Completed React certification course with a focus on advanced hooks and state management.",
+    "icon": "graduation-cap",
+    "iconColor": "#009688"
+  },
+  {
+    "date": "2022",
+    "title": "New Feature Development",
+    "subtitle": "Feature",
+    "description": "Developed and integrated new features into existing applications, improving overall performance.",
+    "icon": "cogs",
+    "iconColor": "#607d8b"
+  }
+]

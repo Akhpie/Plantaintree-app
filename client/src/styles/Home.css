@@ -1,0 +1,274 @@
+:root {
+  --primary-color: #e0f2f1;
+  --bg-variant: #f6fff8;
+  --bg-variant-two: #ecf8f8;
+  --secondary-color: #2b2b2a;
+  --text-color: #2b2b2a;
+  --dark-color: #0e1b2c;
+}
+
+body {
+  background-color: var(--primary-color);
+  background-color: var(--bg-variant-two);
+  color: var(--text-color);
+  margin: 0;
+}
+
+.home-container {
+  padding: 20px;
+}
+
+.hero {
+  /* padding: 60px 20px; */
+  margin-bottom: 0px;
+  padding-left: 60px;
+  padding-top: 150px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.hero::after,
+.hero::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0)
+  );
+  opacity: 0.8;
+}
+
+.hero::after {
+  width: 100%;
+}
+
+.hero::before {
+  bottom: -8px; /* Position the second line below the first */
+  width: 80%; /* Smaller width for the second line */
+}
+
+.hero-line-2::after {
+  content: "";
+  position: absolute;
+  bottom: -16px; /* Position the third line below the second */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%; /* Smaller width for the third line */
+  height: 3px; /* Make the third line thinner */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0)
+  );
+  opacity: 0.8;
+}
+.hero-row {
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.cta-button {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: white;
+}
+
+.features {
+  margin: 40px 0;
+}
+
+.feature-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-height: 300px;
+  margin-top: 20px;
+}
+.span-class {
+  color: #f4a261;
+}
+.hero-heading {
+  font-family: var(--font-family-stylish-heading);
+  font-size: 80px !important;
+  line-height: 90px !important;
+}
+.all-companies-card {
+  position: relative;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #2b2b2a;
+  border-style: ridge;
+  background-image: none !important;
+}
+
+.all-companies-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 18px;
+  color: #004d40; /* Arrow color */
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+.company-logo {
+  max-width: 100%;
+  height: 150px;
+  max-height: 100px;
+  object-fit: contain;
+  width: 200px;
+}
+.logo-container {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feature-card h3 {
+  margin: 16px 0 8px;
+  font-size: 1.25rem;
+  color: #004d40;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.timeline {
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+.timeline h2 {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+.cta {
+  /* background: linear-gradient(to bottom, #e0f2f1, #0c4681); */
+  background-color: #0c4681;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/public/assets/images/dddepth-230.jpg");
+  background-size: cover;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.cta > * {
+  position: relative;
+  z-index: 2;
+}
+
+.cta h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.cta button {
+  background-color: white;
+  color: var(--secondary-color);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta button:hover {
+  background-color: #e0f2f1;
+  color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 40px 10px;
+  }
+
+  .timeline {
+    padding: 20px;
+  }
+
+  .cta {
+    padding: 20px;
+  }
+  .hero-img {
+    margin-top: 10px;
+  }
+  .hero-heading {
+    font-size: 46px !important;
+    line-height: 65px !important;
+  }
+  .hero-caption {
+    font-size: 18px !important;
+  }
+  .feature-card {
+    margin-top: 10px;
+    height: unset !important;
+  }
+}
+
+.contact-text {
+  font-family: "Moderustic", sans-serif;
+}
+.all-companies-text {
+  font-family: "Moderustic", sans-serif;
+}

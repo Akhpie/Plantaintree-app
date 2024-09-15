@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+:where(.css-dev-only-do-not-override-11lehqq).ant-drawer .ant-drawer-close {
+  color: #2f4f4f !important;
+}
+:where(.css-dev-only-do-not-override-11lehqq).ant-drawer .ant-drawer-header {
+  border-bottom: unset !important;
+}
+.sub-header-text {
+  font-size: 1.5rem;
+  display: block;
+  font-family: var(--logo--font);
+  color: #2f4f4f;
+  padding-bottom: 5px;
+  float: right;
+  position: relative;
+  border-bottom: 2px solid transparent;
+  background-image: linear-gradient(
+    to right,
+    rgba(47, 79, 79, 0),
+    rgba(47, 79, 79, 1),
+    rgba(47, 79, 79, 0)
+  );
+  background-position: bottom;
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+}
+.header-container {
+  gap: 0;
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Gopala Jasti",
+    "role": "Founding Partner",
+    "description": "John is an experienced developer specializing in full-stack technologies.",
+    "imgSrc": "/assets/images/gopala-jasti-image.jpg",
+    "linkedinUrl": "https://www.linkedin.com/in/gopalajasti"
+  },
+  {
+    "name": "Giridhar Chilakoori",
+    "role": "Partner",
+    "description": "Jane creates stunning designs with a focus on user experience and modern aesthetics.",
+    "imgSrc": "/assets/images/giridhar-image.jpg",
+    "linkedinUrl": "https://www.linkedin.com/in/giridhar-c-a4a70a5/"
+  },
+  {
+    "name": "Sujit Kurupath",
+    "role": "Partner",
+    "description": "Robert oversees project progress and ensures timely delivery of milestones.",
+    "imgSrc": "https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face-thumbnail.png",
+    "linkedinUrl": "https://www.linkedin.com/in/sujitkurupath/"
+  }
+]

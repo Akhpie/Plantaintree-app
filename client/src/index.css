@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Moderustic:wght@300..800&family=Nerko+One&family=Pirata+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Macondo&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --secondary-color: #2b2b2a;
+  --text-color: #2b2b2a;
+  --orange-color: #f4a261;
+  --font-family-normal: "Moderustic", sans-serif;
+  --font-family-heading: "Nerko One", cursive;
+  --font-family-stylish-heading: "Baskervville SC", serif;
+  --logo--font: "Baskervville SC", serif;
+  --logo-font--two: "Macondo", cursive;
+}
+/* for stylish headings:
+-use: font-family: "Baskervville SC", serif; */
+
+body {
+  font-family: var(--font-family-normal);
+}
+p {
+  font-family: var(--font-family-normal);
+}
+.ant-table-thead > tr > th {
+  font-size: 22px;
+  font-family: "Moderustic", sans-serif;
+  font-weight: 400 !important;
+}
+.hero-small-text {
+  font-family: var(--font-family-normal);
+  font-weight: 500;
+  color: rgb(100, 100, 100);
+}
+.custom-back-top {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 8px;
+  background-color: #1088e9;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-back-top:hover {
+  background-color: #0a6fb5;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.span-text {
+  color: var(--orange-color);
+}
+.hero-title {
+  font-size: 74px;
+  margin: 20px 0;
+  font-family: var(--font-family-stylish-heading);
+  max-width: 1200px;
+}
+.preloader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.main-content {
+  text-align: center;
+  padding: 20px;
+}
+.hero-description {
+  font-size: 30px !important;
+  max-width: 900px;
+  margin-top: 20px;
+}
+.hero-caption {
+  font-family: "Moderustic", sans-serif;
+  font-size: 30px !important;
+  max-width: 900px;
+  margin-top: 20px;
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Siply",
+    "logoSrc": "/assets/images/siply-icon-modified.png",
+    "description": "Company A description here.",
+    "websiteUrl": "https://siply.in/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Edgeforce",
+    "logoSrc": "/assets/images/edge-force-icon.png",
+    "description": "Company B description here.",
+    "websiteUrl": "https://edgeforce.in/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Tiea",
+    "logoSrc": "/assets/images/tiea-no-bg-icon.png",
+    "description": "Company C description here.",
+    "websiteUrl": "https://www.tieaconnectors.com/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "RangDe",
+    "logoSrc": "/assets/images/rangde-logo.svg",
+    "description": "Company C description here.",
+    "websiteUrl": "https://rangde.in/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Lawyered",
+    "logoSrc": "/assets/images/lawyered-icon.png",
+    "description": "Company C description here.",
+    "websiteUrl": "https://www.lawyered.in/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "PowerBot",
+    "logoSrc": "/assets/images/powerbot-icon.png",
+    "description": "Company C description here.",
+    "websiteUrl": "https://powerbot.in/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Heliware",
+    "logoSrc": "/assets/images/heliware-no-bg.png",
+    "description": "Company C description here.",
+    "websiteUrl": "https://www.heliware.co.in/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "EduGorilla",
+    "logoSrc": "/assets/images/edugorilla-icon.png",
+    "description": "Company C description here.",
+    "websiteUrl": "https://testseries.edugorilla.com/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Celcius",
+    "logoSrc": "/assets/images/celcius-logo.png",
+    "description": "Company C description here.",
+    "websiteUrl": "https://www.celcius.in/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Moov",
+    "logoSrc": "/assets/images/moov-logo-full.webp",
+    "description": "Company C description here.",
+    "websiteUrl": "https://moov.co/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Restream",
+    "logoSrc": "/assets/images/restream-logo.svg",
+    "description": "Company C description here.",
+    "websiteUrl": "https://restream.io/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Honeycombcredit",
+    "logoSrc": "/assets/images/honeycombcredit-logo.webp",
+    "description": "Company C description here.",
+    "websiteUrl": "https://www.honeycombcredit.com/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Animoca Brands",
+    "logoSrc": "/assets/images/anomica-logo.gif",
+    "description": "Company C description here.",
+    "websiteUrl": "https://www.animocabrands.com/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Swan Bitcoin",
+    "logoSrc": "/assets/images/swan-icon.png",
+    "description": "Company C description here.",
+    "websiteUrl": "https://www.swanbitcoin.com/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  },
+  {
+    "name": "Upcontent",
+    "logoSrc": "/assets/images/upcontent-icon.webp",
+    "description": "Company C description here.",
+    "websiteUrl": "https://www.upcontent.com/",
+    "category": "Finance",
+    "country": "India",
+    "year": "2024",
+    "status": "Active"
+  }
+]

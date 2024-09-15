@@ -1,0 +1,5 @@
+.hero-small-text {
+  font-family: var(--font-family-normal);
+  font-weight: 500;
+  color: rgb(100, 100, 100);
+}

@@ -1,0 +1,36 @@
+/* Header styling */
+.admin-header {
+  /* background-color: #e0f2f1; */
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.header-content h1 {
+  margin-left: 50px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Main content body styling */
+.content-body {
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.content-body h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.content-body p {
+  font-size: 16px;
+  color: #666;
+}
+@media (max-width: 768px) {
+  .content-body {
+    padding: unset;
+  }
+}

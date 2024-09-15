@@ -1,0 +1,178 @@
+.team-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.team-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.team-member {
+  flex: 1 1 260px; /* Adjusted width to make the cards bigger */
+  margin: 15px;
+  max-width: 260px; /* Ensures the maximum width of the card */
+}
+
+.team-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.team-image-container {
+  width: 100%;
+  height: 200px; /* Increased height for better image display */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.team-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%; /* Ensures the image fits within the container */
+  object-fit: contain; /* Uses 'contain' to prevent cropping */
+  border-bottom: 2px solid #e0f2f1; /* Matching your preferred theme color */
+}
+
+.team-info {
+  padding: 15px;
+  flex-grow: 1; /* Allows this section to grow and take available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.team-name {
+  font-size: 1.4em;
+  margin: 0;
+  color: #333;
+}
+
+.team-role {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.linkedin-icon {
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.linkedin-button {
+  background-color: #0077b5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9em;
+}
+
+.linkedin-button:hover {
+  background-color: #005f86;
+}
+
+.linkedin-button i {
+  margin-right: 8px;
+}
+.hero-section {
+  padding: 60px;
+  text-align: left;
+  position: relative;
+}
+
+.hero-subtitle {
+  color: #ff0000; /* Red color for subtitle */
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-section {
+    padding: 30px;
+  }
+  .hero-description {
+    font-size: 16px !important;
+  }
+  .team-title-text {
+    font-size: 22px !important;
+  }
+  .footer-text-team {
+    font-size: 1rem !important;
+  }
+}
+
+.hero-decoration {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-image: linear-gradient(to right, #666666 10%, transparent 95%);
+}
+.team-title-section {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  color: #3a3a3a;
+  font-family: var(--font-family-normal);
+}
+
+.team-title-text {
+  font-size: 36px;
+  margin-right: 20px;
+}
+
+.team-title-line {
+  flex-grow: 1;
+  height: 2px;
+  background-image: linear-gradient(to right, #666666 10%, transparent 98%);
+  /* margin-left: 0px; */
+}
+.team-footer {
+  margin-top: 40px;
+  text-align: center;
+  background-color: #ccccf5;
+  background-image: url("/public/assets/images/dddepth-282.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.footer-text-team {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.6;
+  max-width: 1200px;
+  margin: 0 auto;
+}

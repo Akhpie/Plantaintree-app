@@ -1,0 +1,196 @@
+.about-section {
+  padding: 50px;
+}
+
+.about-page {
+  padding: 20px;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.about-left,
+.about-right {
+  flex: 1;
+  background-color: #caf0f8;
+  background-image: url("/public/assets/images/sssurf-two.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-heading {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.about-points {
+  list-style: none;
+  padding-left: 0;
+  color: #444;
+}
+
+.about-points li {
+  margin-bottom: 10px;
+}
+
+.about-description {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.marquee-container {
+  margin-top: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logo {
+  margin-right: 30px;
+  height: 40px;
+  width: auto;
+  /* opacity: 50%; */
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-left,
+  .about-right {
+    flex: unset;
+    margin-bottom: 20px;
+  }
+  .info-heading {
+    font-size: 2.2rem !important;
+  }
+  .info-item h3 {
+    font-size: 1.8rem !important;
+  }
+
+  .info-item p {
+    font-size: 1.2rem !important;
+  }
+}
+@media (max-width: 480px) {
+  .about-section {
+    padding: 10px;
+  }
+}
+.points-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.info-box {
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+}
+.bg-image {
+  background-image: url("/public/assets/images/dddepth-051.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 12px;
+  max-width: 1200px;
+  background-position: center top -50px;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.info-heading {
+  font-size: 3.3rem;
+  color: #333;
+  font-family: var(--font-family-stylish-heading);
+  margin-bottom: 10px;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-item {
+  position: relative;
+}
+
+.dot-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.dot {
+  font-size: 3rem;
+  color: #1890ff;
+  margin: 0 5px;
+}
+
+.info-item h3 {
+  font-size: 2.2rem;
+  color: #005f5f;
+  margin: 0;
+}
+
+.info-item p {
+  font-size: 1.5rem;
+  color: #000000;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.invest-text {
+  color: #005f5f;
+  font-weight: bold;
+  /* padding: 10px 20px; */
+  display: inline-block;
+  background: rgba(255, 255, 255, -0.15);
+  border-radius: 10px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  text-align: center;
+}
