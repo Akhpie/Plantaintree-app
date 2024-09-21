@@ -19,7 +19,7 @@ const ShowCompany = () => {
 
   useEffect(() => {
     axios
-      .get(`https://plantaintree-app-server.vercel.app/${id}`)
+      .get(`https://plantaintree-app-server.vercel.app/companies/${id}`)
       .then((response) => {
         setCompany(response.data);
         setLoading(false);
