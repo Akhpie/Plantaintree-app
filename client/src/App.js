@@ -127,20 +127,27 @@ import EditCompanies from "./Admin-page/Admin-components/EditCompanies";
 import CompanyTest from "./Admin-page/Admin-components/CompanyTest";
 import BackToTop from "./components/BackToTop";
 import PrivateRoute from "./Admin-page/Admin-protect/PrivateRoute";
+import Storage from "./Admin-page/Storage-tab/Storage";
+import Blogs from "./pages/Blogs";
+import BlogSettings from "./Admin-page/Blogs-tab/BlogSettings";
+import Analytics from "./Admin-page/Analytics-tab/Analytics";
+import ReactGA from "react-ga4";
+import NoteMaker from "./Admin-page/Scheduler-tab/NoteMaker";
+import Schedule from "./Admin-page/Scheduler-tab/Schedule";
+
+const measurementId = "G-K0PB7PN58Z";
+ReactGA.initialize(measurementId);
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [isContentLoaded, setIsContentLoaded] = useState(false);
 
-  // Authentication state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Check localStorage for authentication status on load
   useEffect(() => {
     const authStatus = localStorage.getItem("isAuthenticated");
     setIsAuthenticated(authStatus === "true");
 
-    // Preloader logic
     const preloaderTimer = setTimeout(() => {
       if (!isContentLoaded) {
         setLoading(true);
@@ -186,6 +193,7 @@ const App = () => {
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/companies" element={<Companies />} />
+            <Route path="/blogs" element={<Blogs />} />
             <Route
               path="/admin"
               element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />}
@@ -205,9 +213,14 @@ const App = () => {
               <Route path="companySettings" element={<CompanySettings />} />
               <Route path="companyAdd" element={<CreateCompany />} />
               <Route path="testCompanies" element={<CompanyTest />} />
+              <Route path="storage" element={<Storage />} />
+              <Route path="analytics" element={<Analytics />} />
+              <Route path="notemaker" element={<NoteMaker />} />
+              <Route path="schedule" element={<Schedule />} />
               <Route path="companyDelete/:id" element={<DeleteCompany />} />
               <Route path="showCompanies/:id" element={<ShowCompany />} />
               <Route path="editCompanies/:id" element={<EditCompanies />} />
+              <Route path="blogmanage" element={<BlogSettings />} />
             </Route>
           </Routes>
         </>

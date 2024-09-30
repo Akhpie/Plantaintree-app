@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Drawer, Menu } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import "../styles/CustomSidebar.css";
 import plantainlogo from "../pages/images/plantain-icon-main.png";
 import { NavLink } from "react-router-dom";
 import ThemeSwitcher from "./ThemeSwitcher";
+import axios from "axios";
 
 // Styled components
 const Header = styled.header`
@@ -170,6 +171,20 @@ const StyledImage = styled.img`
 
 const CustomSidebar = () => {
   const [open, setOpen] = useState(false);
+  const [blogsVisible, setBlogsVisible] = useState(true);
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/settings");
+        setBlogsVisible(response.data.blogsVisible);
+      } catch (error) {
+        console.error("Error fetching settings:", error);
+      }
+    };
+
+    fetchSettings();
+  }, []);
 
   const showDrawer = () => {
     setOpen(true);
@@ -195,11 +210,11 @@ const CustomSidebar = () => {
         </StyledLink>
         <HeaderLinks className="nav-items">
           <HeaderLink to="/about">About</HeaderLink>
-          {/* <HeaderLink to="/values">Values</HeaderLink> */}
           <HeaderLink to="/team">Team</HeaderLink>
           <HeaderLink to="/companies">Portfolio</HeaderLink>
+          {/* <HeaderLink to="/blogs">Blogs</HeaderLink> */}
+          {blogsVisible && <HeaderLink to="/blogs">Blogs</HeaderLink>}
         </HeaderLinks>
-        {/* <ThemeSwitcher /> */}
         <HamburgerButton
           type="text"
           icon={<MenuOutlined />}
@@ -214,11 +229,9 @@ const CustomSidebar = () => {
         onClose={onClose}
         open={open}
         drawerStyle={{
-          // backgroundColor: "#80cbc4",
           color: "#2f4f4f",
         }}
         headerStyle={{
-          // backgroundColor: "#80cbc4",
           color: "#2f4f4f",
         }}
       >
@@ -229,11 +242,6 @@ const CustomSidebar = () => {
                 About
               </NavLink>
             </Menu.Item>
-            {/* <Menu.Item key="2">
-              <NavLink to="/values" onClick={onClose} activeClassName="active">
-                Values
-              </NavLink>
-            </Menu.Item> */}
             <Menu.Item key="2">
               <NavLink to="/team" onClick={onClose} activeClassName="active">
                 Team
@@ -248,6 +256,18 @@ const CustomSidebar = () => {
                 Portfolio
               </NavLink>
             </Menu.Item>
+            {/* <Menu.Item key="4">
+              <NavLink to="/blogs" onClick={onClose} activeClassName="active">
+                Blogs
+              </NavLink>
+            </Menu.Item> */}
+            {blogsVisible && (
+              <Menu.Item key="4">
+                <NavLink to="/blogs" onClick={onClose}>
+                  Blogs
+                </NavLink>
+              </Menu.Item>
+            )}
           </StyledMenu>
         </DrawerBody>
       </Drawer>

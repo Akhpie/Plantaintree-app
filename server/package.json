@@ -13,7 +13,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "https-browserify": "^1.0.0",
     "mongoose": "^8.6.1",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.4"
   }
 }

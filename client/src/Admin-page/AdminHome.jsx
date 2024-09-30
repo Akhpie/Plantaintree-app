@@ -1,51 +1,80 @@
-import React from "react";
-import { Layout, Menu, Button, theme } from "antd";
+import React, { useState } from "react";
+import { Layout, Menu, Button, Switch, theme } from "antd";
 import {
   DashboardOutlined,
   UserOutlined,
   SettingOutlined,
   LogoutOutlined,
+  DatabaseOutlined,
+  SolutionOutlined,
+  FileTextOutlined,
+  AreaChartOutlined,
+  CalendarOutlined,
+  MoonOutlined,
+  SunOutlined,
 } from "@ant-design/icons";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import "../styles/AdminHome.css";
-import adminlogo from "../pages/images/admin-logo.png";
+import adminLogoDark from "../pages/images/admin-logo.png";
+import adminLogoLight from "../pages/images/admin-logo-dark.png";
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 const AdminHome = () => {
+  const [selectedKey, setSelectedKey] = useState("1");
+  const [themeMode, setThemeMode] = useState("dark");
+
+  const handleMenuClick = (e) => {
+    setSelectedKey(e.key);
+  };
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    navigate("/admin");
+    const auth2 = window.gapi.auth2.getAuthInstance();
+    if (auth2) {
+      auth2.signOut().then(() => {
+        console.log("User signed out.");
+        navigate("/admin");
+      });
+    }
   };
+
+  const handleThemeToggle = (checked) => {
+    setThemeMode(checked ? "dark" : "light");
+  };
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider breakpoint="lg" collapsible width={250} theme="dark">
+      <Sider breakpoint="lg" collapsible width={250} theme={themeMode}>
         <div className="logo-admin">
           <Link to="/">
-            <img src={adminlogo} alt="Logo" className="logo-image" />
+            <img
+              src={themeMode === "dark" ? adminLogoDark : adminLogoLight}
+              alt="Logo"
+              className="logo-image"
+            />
           </Link>
         </div>
         <Menu
-          theme="dark"
+          theme={themeMode}
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          selectedKeys={[selectedKey]}
+          onClick={handleMenuClick}
           style={{ marginTop: "30px" }}
         >
-          {/* Dashboard */}
           <Menu.Item key="1" icon={<DashboardOutlined />}>
             <Link to="dashboard">Dashboard</Link>
           </Menu.Item>
 
-          {/* Company Settings Dropdown */}
           <SubMenu
             key="sub1"
-            icon={<SettingOutlined />}
+            icon={<SolutionOutlined />}
             title="Company Settings"
           >
             <Menu.Item key="2">
@@ -56,11 +85,40 @@ const AdminHome = () => {
             </Menu.Item>
           </SubMenu>
 
-          {/* Other Menu Items */}
-          <Menu.Item key="4" icon={<UserOutlined />}>
+          <SubMenu key="sub2" icon={<DatabaseOutlined />} title="Storage Area">
+            <Menu.Item key="4">
+              <Link to="storage">Storage Area</Link>
+            </Menu.Item>
+          </SubMenu>
+
+          <SubMenu
+            key="sub3"
+            icon={<FileTextOutlined />}
+            title="Blog Management"
+          >
+            <Menu.Item key="5">
+              <Link to="blogmanage">Blog Settings</Link>
+            </Menu.Item>
+          </SubMenu>
+
+          <SubMenu key="sub4" icon={<CalendarOutlined />} title="Scheduler">
+            <Menu.Item key="6">
+              <Link to="notemaker">Tasks Lister</Link>
+            </Menu.Item>
+            <Menu.Item key="7">
+              <Link to="schedule">Event Scheduler</Link>
+            </Menu.Item>
+          </SubMenu>
+
+          <Menu.Item key="8" icon={<AreaChartOutlined />}>
+            <Link to="analytics">Analytics</Link>
+          </Menu.Item>
+
+          <Menu.Item key="9" icon={<UserOutlined />}>
             <Link to="users">Users</Link>
           </Menu.Item>
-          <Menu.Item key="5" icon={<SettingOutlined />}>
+
+          <Menu.Item key="10" icon={<SettingOutlined />}>
             <Link to="settings">Settings</Link>
           </Menu.Item>
         </Menu>
@@ -68,10 +126,7 @@ const AdminHome = () => {
       <Layout>
         <Header
           className="admin-header"
-          // style={{
-          //   padding: 0,
-          //   background: colorBgContainer,
-          // }}
+          style={{ background: themeMode === "dark" ? "#001529" : "#fff" }}
         >
           <div
             className="header-content"
@@ -82,6 +137,13 @@ const AdminHome = () => {
               padding: "0 16px",
             }}
           >
+            <Switch
+              checked={themeMode === "dark"}
+              onChange={handleThemeToggle}
+              checkedChildren={<MoonOutlined />}
+              unCheckedChildren={<SunOutlined />}
+              style={{ marginRight: "16px" }}
+            />
             <Button
               type="primary"
               icon={<LogoutOutlined />}

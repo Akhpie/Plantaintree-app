@@ -1,125 +1,135 @@
-// import React, { useState } from "react";
-// import { Form, Input, Button, Checkbox, message } from "antd";
-// import {
-//   UserOutlined,
-//   LockOutlined,
-//   EyeInvisibleOutlined,
-//   EyeTwoTone,
-// } from "@ant-design/icons";
+// import React, { useState, useEffect } from "react";
+// import { Form, Button, message } from "antd";
 // import { useNavigate } from "react-router-dom";
+// import logo from "../pages/images/plantain-icon-main.png";
 // import "../styles/AdminLogin.css";
+// import { initGoogleAuth } from "./ini/AuthService";
+// import googleIcon from "../pages/images/google-icon.png";
 
 // const AdminLogin = ({ setIsAuthenticated }) => {
 //   const [loading, setLoading] = useState(false);
+//   const [gapiInitialized, setGapiInitialized] = useState(false);
 //   const navigate = useNavigate();
 
-//   const onFinish = (values) => {
-//     const { username, password } = values;
+//   useEffect(() => {
+//     initGoogleAuth()
+//       .then(() => {
+//         setGapiInitialized(true);
+//       })
+//       .catch((error) => {
+//         console.error("Error initializing Google API:", error);
+//         message.error("Failed to load Google API.");
+//       });
+//   }, []);
 
-//     const validUsername = "admin123@gmail.com";
-//     const validPassword = "Admin@123";
-
+//   const handleGoogleLogin = () => {
 //     setLoading(true);
-
-//     if (username === validUsername && password === validPassword) {
-//       setTimeout(() => {
-//         setLoading(false);
+//     initGoogleAuth()
+//       .then((authResponse) => {
+//         console.log("Access Token:", authResponse.access_token);
+//         console.log("ID Token:", authResponse.id_token);
 //         setIsAuthenticated(true);
 //         navigate("/admin/home/dashboard");
-//       }, 1000);
-//     } else {
-//       setLoading(false);
-//       message.error("Invalid username or password!");
-//     }
+//       })
+//       .catch((error) => {
+//         console.error("Google Sign-In failed:", error);
+//         message.error("Google Sign-In failed!");
+//       })
+//       .finally(() => {
+//         setLoading(false);
+//       });
 //   };
 
 //   return (
-//     <div className="admin-login-container">
-//       <Form
-//         name="admin_login"
-//         className="login-form"
-//         initialValues={{ remember: true }}
-//         onFinish={onFinish}
-//       >
-//         <h2>Admin Login</h2>
-//         <Form.Item
-//           name="username"
-//           rules={[{ required: true, message: "Please input your Username!" }]}
+//     <>
+//       <div className="login-header">
+//         <img
+//           src={logo}
+//           alt="Company Logo"
+//           className="admin-logo text-center w-50"
+//         />
+//       </div>
+//       <div className="admin-login-container">
+//         <h2 className="text-center mb-6 text-2xl text-gray-800 bg-teal-200 p-2 rounded-md shadow-md">
+//           Admin Login
+//         </h2>
+//         <Form
+//           name="admin_login"
+//           className="login-form"
+//           initialValues={{ remember: true }}
 //         >
-//           <Input
-//             prefix={<UserOutlined className="site-form-item-icon" />}
-//             placeholder="Username"
-//           />
-//         </Form.Item>
-//         <Form.Item
-//           name="password"
-//           rules={[{ required: true, message: "Please input your Password!" }]}
-//         >
-//           <Input.Password
-//             prefix={<LockOutlined className="site-form-item-icon" />}
-//             placeholder="Password"
-//             iconRender={(visible) =>
-//               visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-//             }
-//           />
-//         </Form.Item>
-//         <Form.Item>
-//           <Form.Item name="remember" valuePropName="checked" noStyle>
-//             <Checkbox>Remember me</Checkbox>
-//           </Form.Item>
-//         </Form.Item>
-
-//         <Form.Item>
+//           {/* //! Google Login Button */}
 //           <Button
-//             type="primary"
-//             htmlType="submit"
-//             className="login-form-button"
-//             loading={loading}
+//             type="default"
+//             className="google-login-button"
+//             onClick={handleGoogleLogin}
 //           >
-//             Log in
+//             <img src={googleIcon} alt="Google Logo" className="google-logo" />
+//             Sign in with Google
 //           </Button>
-//         </Form.Item>
-//       </Form>
-//     </div>
+//         </Form>
+//       </div>
+//     </>
 //   );
 // };
 
 // export default AdminLogin;
 
-import React, { useState } from "react";
-import { Form, Input, Button, Checkbox, message } from "antd";
-import {
-  UserOutlined,
-  LockOutlined,
-  EyeInvisibleOutlined,
-  EyeTwoTone,
-} from "@ant-design/icons";
+import React, { useState, useEffect } from "react";
+import { Form, Button, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import "../styles/AdminLogin.css";
 import logo from "../pages/images/plantain-icon-main.png";
+import "../styles/AdminLogin.css";
+import { initGoogleAuth } from "./ini/AuthService";
+import googleIcon from "../pages/images/google-icon.png";
+import { jwtDecode } from "jwt-decode";
 
 const AdminLogin = ({ setIsAuthenticated }) => {
   const [loading, setLoading] = useState(false);
+  const [gapiInitialized, setGapiInitialized] = useState(false);
   const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    const { username, password } = values;
+  // List of allowed emails (can be moved to the backend for better security)
+  const allowedUsers = ["akhilpie3@gmail.com", "akhya1819@gmail.com"];
 
-    const validUsername = "admin123@gmail.com";
-    const validPassword = "Admin@123";
+  useEffect(() => {
+    initGoogleAuth()
+      .then(() => {
+        setGapiInitialized(true);
+      })
+      .catch((error) => {
+        console.error("Error initializing Google API:", error);
+        message.error("Failed to load Google API.");
+      });
+  }, []);
 
+  const handleGoogleLogin = () => {
     setLoading(true);
+    initGoogleAuth()
+      .then((authResponse) => {
+        console.log("Google Auth Response:", authResponse);
 
-    if (username === validUsername && password === validPassword) {
-      setTimeout(() => {
+        // Decode the id_token
+        const decodedToken = jwtDecode(authResponse.id_token);
+        const userEmail = decodedToken?.email; // Extract email from the decoded token
+
+        console.log("User Email:", userEmail); // Ensure the email is being logged
+
+        if (userEmail && allowedUsers.includes(userEmail.toLowerCase())) {
+          setIsAuthenticated(true);
+          navigate("/admin/home/dashboard");
+        } else {
+          message.error("Unauthorized access. Your account is not allowed.");
+          setIsAuthenticated(false);
+        }
+      })
+      .catch((error) => {
+        console.error("Google Sign-In failed:", error);
+        message.error("Google Sign-In failed!");
+      })
+      .finally(() => {
         setLoading(false);
-        setIsAuthenticated(true);
-        navigate("/admin/home/dashboard");
-      }, 1000);
-    } else {
-      setLoading(false);
-      message.error("Invalid username or password!");
-    }
+      });
   };
 
   return (
@@ -139,45 +149,16 @@ const AdminLogin = ({ setIsAuthenticated }) => {
           name="admin_login"
           className="login-form"
           initialValues={{ remember: true }}
-          onFinish={onFinish}
         >
-          <Form.Item
-            name="username"
-            rules={[{ required: true, message: "Please input your Username!" }]}
+          {/* //! Google Login Button */}
+          <Button
+            type="default"
+            className="google-login-button"
+            onClick={handleGoogleLogin}
           >
-            <Input
-              prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username"
-            />
-          </Form.Item>
-          <Form.Item
-            name="password"
-            rules={[{ required: true, message: "Please input your Password!" }]}
-          >
-            <Input.Password
-              prefix={<LockOutlined className="site-form-item-icon" />}
-              placeholder="Password"
-              iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-              }
-            />
-          </Form.Item>
-          <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-          </Form.Item>
-
-          <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              className="login-form-button"
-              loading={loading}
-            >
-              Log in
-            </Button>
-          </Form.Item>
+            <img src={googleIcon} alt="Google Logo" className="google-logo" />
+            Sign in with Google
+          </Button>
         </Form>
       </div>
     </>

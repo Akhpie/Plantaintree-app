@@ -13,7 +13,6 @@ const { Option } = Select;
 
 const StyledTableContainer = styled.div`
   // padding: 30px;
-  font-family: "Roboto", sans-serif;
 `;
 
 const HeroSection = styled.div`
@@ -58,44 +57,6 @@ const HeroTextContainer = styled.div`
   }
 `;
 
-const HeroImage = styled.div`
-  // margin-top: 20px;
-
-  img {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-  }
-
-  @media (min-width: 768px) {
-    margin-top: 0;
-  }
-`;
-
-const StyledTable = styled(Table)`
-  .ant-table-thead > tr > th {
-    font-size: 18px;
-    background-color: transparent;
-    color: #333;
-  }
-  .ant-table-tbody > tr {
-    // background-color: #cad6fa !important;
-    height: 250px;
-  }
-  .ant-table-cell {
-    font-size: 16px;
-    font-family: "Moderustic", sans-serif;
-    background-color: transparent;
-  }
-`;
-
-const TableContainer = styled.div`
-  background-color: #cad6fa;
-  padding: 0px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-`;
-
 const CompaniesTable = () => {
   const [companies, setCompanies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -113,13 +74,6 @@ const CompaniesTable = () => {
         setLoading(false);
       });
   }, []);
-
-  const [filters, setFilters] = useState({
-    category: "Finance",
-    country: "India",
-    year: "2024",
-    status: "Active",
-  });
 
   return (
     <>
