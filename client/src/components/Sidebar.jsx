@@ -176,7 +176,9 @@ const CustomSidebar = () => {
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/settings");
+        const response = await axios.get(
+          "https://plantaintree-app-server.vercel.app/settings"
+        );
         setBlogsVisible(response.data.blogsVisible);
       } catch (error) {
         console.error("Error fetching settings:", error);

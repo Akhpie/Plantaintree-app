@@ -90,7 +90,11 @@ const AdminLogin = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
 
   // List of allowed emails (can be moved to the backend for better security)
-  const allowedUsers = ["akhilpie3@gmail.com", "akhya1819@gmail.com"];
+  const allowedUsers = [
+    "akhilpie3@gmail.com",
+    "akhya1819@gmail.com",
+    "akhilpickle19@gmail.com",
+  ];
 
   useEffect(() => {
     initGoogleAuth()
@@ -109,11 +113,10 @@ const AdminLogin = ({ setIsAuthenticated }) => {
       .then((authResponse) => {
         console.log("Google Auth Response:", authResponse);
 
-        // Decode the id_token
         const decodedToken = jwtDecode(authResponse.id_token);
-        const userEmail = decodedToken?.email; // Extract email from the decoded token
+        const userEmail = decodedToken?.email;
 
-        console.log("User Email:", userEmail); // Ensure the email is being logged
+        console.log("User Email:", userEmail);
 
         if (userEmail && allowedUsers.includes(userEmail.toLowerCase())) {
           setIsAuthenticated(true);
