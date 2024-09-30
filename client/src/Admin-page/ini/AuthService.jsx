@@ -1,28 +1,24 @@
 import { gapi } from "gapi-script";
 
-let isGapiInitialized = false; // Track initialization state
+let isGapiInitialized = false;
 
 export const initGoogleAuth = () => {
   return new Promise((resolve, reject) => {
-    // Check if GAPI is already initialized
     if (isGapiInitialized) {
-      const authInstance = gapi.auth2.getAuthInstance();
-      if (authInstance.isSignedIn.get()) {
-        resolve(authInstance.currentUser.get().getAuthResponse());
+      const authResponse = checkAuthStatus();
+      if (authResponse) {
+        resolve(authResponse);
       } else {
-        authInstance.signIn().then(
-          (googleUser) => {
-            resolve(googleUser.getAuthResponse());
-          },
-          (error) => {
-            reject(error);
-          }
-        );
+        const authInstance = gapi.auth2.getAuthInstance();
+        if (authInstance.isSignedIn.get()) {
+          resolve(authInstance.currentUser.get().getAuthResponse());
+        } else {
+          signInUser(authInstance, resolve, reject);
+        }
       }
-      return; // Exit early if already initialized
+      return;
     }
 
-    // Load GAPI and initialize
     gapi.load("client:auth2", () => {
       gapi.client
         .init({
@@ -35,17 +31,13 @@ export const initGoogleAuth = () => {
           isGapiInitialized = true; // Set initialization state
           const authInstance = gapi.auth2.getAuthInstance();
 
-          if (authInstance.isSignedIn.get()) {
+          const authResponse = checkAuthStatus(); // Check local storage first
+          if (authResponse) {
+            resolve(authResponse);
+          } else if (authInstance.isSignedIn.get()) {
             resolve(authInstance.currentUser.get().getAuthResponse());
           } else {
-            authInstance.signIn().then(
-              (googleUser) => {
-                resolve(googleUser.getAuthResponse());
-              },
-              (error) => {
-                reject(error);
-              }
-            );
+            signInUser(authInstance, resolve, reject);
           }
         })
         .catch((error) => {
@@ -55,12 +47,43 @@ export const initGoogleAuth = () => {
   });
 };
 
+const signInUser = (authInstance, resolve, reject) => {
+  authInstance.signIn().then(
+    (googleUser) => {
+      const authResponse = googleUser.getAuthResponse();
+      localStorage.setItem("googleAuth", JSON.stringify(authResponse));
+      resolve(authResponse);
+    },
+    (error) => {
+      reject(error);
+    }
+  );
+};
+
 export const getAccessToken = () => {
+  const authResponse = JSON.parse(localStorage.getItem("googleAuth"));
+  if (authResponse) {
+    return authResponse.access_token;
+  }
   const authInstance = gapi.auth2.getAuthInstance();
   return authInstance.currentUser.get().getAuthResponse().access_token;
 };
 
+// Function to get ID token from local storage or GAPI
 export const getIdToken = () => {
+  const authResponse = JSON.parse(localStorage.getItem("googleAuth"));
+  if (authResponse) {
+    return authResponse.id_token;
+  }
   const authInstance = gapi.auth2.getAuthInstance();
   return authInstance.currentUser.get().getAuthResponse().id_token;
+};
+
+// Check if user is signed in after page refresh
+export const checkAuthStatus = () => {
+  const authResponse = JSON.parse(localStorage.getItem("googleAuth"));
+  if (authResponse) {
+    return authResponse;
+  }
+  return null;
 };

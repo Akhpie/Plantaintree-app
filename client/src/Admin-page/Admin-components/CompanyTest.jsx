@@ -28,7 +28,7 @@ const CompanyTest = () => {
     <div className="p-4">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl my-8">Companies List</h1>
-        <Link to="/admin/home/companyAdd">
+        <Link to="/admin/companyAdd">
           <PlusCircleTwoTone
             style={{ fontSize: "36px", color: "#0369a1" }}
             className="animated-icon"

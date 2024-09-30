@@ -19,7 +19,7 @@ const CreateCompany = () => {
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Company created successfully", { variant: "success" });
-        navigate("/admin/home/testCompanies");
+        navigate("/admin/testCompanies");
       })
       .catch((error) => {
         setLoading(false);

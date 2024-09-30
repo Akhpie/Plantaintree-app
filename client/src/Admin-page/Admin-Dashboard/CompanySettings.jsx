@@ -7,7 +7,7 @@ const CompanySettings = () => {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate("/admin/home/companyAdd");
+    navigate("/admin/companyAdd");
   };
 
   return (

@@ -22,7 +22,7 @@ const DeleteCompany = () => {
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Company has been Deleted!", { variant: "success" });
-        navigate("/admin/home/testCompanies");
+        navigate("/admin/testCompanies");
       })
       .catch((error) => {
         setLoading(false);
@@ -62,7 +62,7 @@ const DeleteCompany = () => {
           <Button
             type="default"
             size="large"
-            onClick={() => navigate("/admin/home/testCompanies")}
+            onClick={() => navigate("/admin/testCompanies")}
             style={{ width: "100%" }}
           >
             Cancel

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Layout, Menu, Button, Switch, theme } from "antd";
+import { Layout, Menu, Button, Switch, theme, Spin } from "antd";
 import {
   DashboardOutlined,
   UserOutlined,
@@ -24,6 +24,7 @@ const { SubMenu } = Menu;
 const AdminHome = () => {
   const [selectedKey, setSelectedKey] = useState("1");
   const [themeMode, setThemeMode] = useState("dark");
+  const [loading, setLoading] = useState(false);
 
   const handleMenuClick = (e) => {
     setSelectedKey(e.key);
@@ -31,13 +32,49 @@ const AdminHome = () => {
 
   const navigate = useNavigate();
 
+  // const handleLogout = () => {
+  //   const auth2 = window.gapi.auth2.getAuthInstance();
+  //   if (auth2) {
+  //     auth2.signOut().then(() => {
+  //       console.log("User signed out.");
+  //       navigate("/admin");
+  //     });
+  //   }
+  // };
   const handleLogout = () => {
-    const auth2 = window.gapi.auth2.getAuthInstance();
-    if (auth2) {
-      auth2.signOut().then(() => {
-        console.log("User signed out.");
+    setLoading(true);
+
+    const timeout = setTimeout(() => {
+      navigate("/admin");
+      setLoading(false);
+    }, 2000);
+
+    if (window.gapi && window.gapi.auth2) {
+      const auth2 = window.gapi.auth2.getAuthInstance();
+      if (auth2) {
+        auth2
+          .signOut()
+          .then(() => {
+            console.log("User signed out.");
+            localStorage.removeItem("googleAuth");
+          })
+          .catch((error) => {
+            console.error("Error signing out:", error);
+            clearTimeout(timeout);
+            setLoading(false);
+            navigate("/admin");
+          });
+      } else {
+        console.error("Auth instance is not available.");
+        clearTimeout(timeout);
+        setLoading(false);
         navigate("/admin");
-      });
+      }
+    } else {
+      console.error("Google API is not initialized.");
+      clearTimeout(timeout);
+      setLoading(false);
+      navigate("/admin");
     }
   };
 
@@ -166,7 +203,20 @@ const AdminHome = () => {
           }}
         >
           <div className="content-body">
-            <Outlet />
+            {loading ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
+                <Spin size="large" />
+              </div>
+            ) : (
+              <Outlet />
+            )}
           </div>
         </Content>
       </Layout>

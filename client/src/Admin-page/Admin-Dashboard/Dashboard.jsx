@@ -70,22 +70,22 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate("/admin/home/companySettings");
+    navigate("/admin/companySettings");
   };
   const handleStorageLink = () => {
-    navigate("/admin/home/storage");
+    navigate("/admin/storage");
   };
   const handleBlogLink = () => {
-    navigate("/admin/home/blogmanage");
+    navigate("/admin/blogmanage");
   };
   const handleNotesLink = () => {
-    navigate("/admin/home/notemaker");
+    navigate("/admin/notemaker");
   };
   const handleEventsLink = () => {
-    navigate("/admin/home/schedule");
+    navigate("/admin/schedule");
   };
   const handleSettingsLink = () => {
-    navigate("/admin/home/settings");
+    navigate("/admin/settings");
   };
 
   return (

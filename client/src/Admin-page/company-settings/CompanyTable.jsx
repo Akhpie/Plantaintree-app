@@ -115,13 +115,13 @@ const CompanyTable = ({ companies, showAdminColumns = true }) => {
       key: "operations",
       render: (text, record) => (
         <div className="flex justify-center gap-x-4">
-          <Link to={`/admin/home/showCompanies/${record._id}`}>
+          <Link to={`/admin/showCompanies/${record._id}`}>
             <BsInfoCircle className="text-2xl text-green-800" />
           </Link>
-          <Link to={`/admin/home/editCompanies/${record._id}`}>
+          <Link to={`/admin/editCompanies/${record._id}`}>
             <AiOutlineEdit className="text-2xl text-yellow-600" />
           </Link>
-          <Link to={`/admin/home/companyDelete/${record._id}`}>
+          <Link to={`/admin/companyDelete/${record._id}`}>
             <MdOutlineDelete className="text-2xl text-red-600" />
           </Link>
         </div>

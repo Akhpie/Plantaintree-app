@@ -23,7 +23,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const BackButton = ({ destination = "/admin/home/testCompanies" }) => {
+const BackButton = ({ destination = "/admin/testCompanies" }) => {
   return (
     <div className="flex">
       <StyledLink to={destination}>
