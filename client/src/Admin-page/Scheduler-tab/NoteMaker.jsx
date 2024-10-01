@@ -34,7 +34,7 @@ const ToDoList = () => {
   const [loadingDeleteAll, setLoadingDeleteAll] = useState(false);
   const [taskList, setTaskList] = useState("@default");
   const [taskLists, setTaskLists] = useState([
-    { id: "@default", title: "Default" },
+    { id: "@default", title: "Choose a List to add a task in" },
   ]);
   const [isAddListModalVisible, setIsAddListModalVisible] = useState(false);
   const [newListTitle, setNewListTitle] = useState("");
