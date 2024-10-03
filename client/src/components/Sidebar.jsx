@@ -171,7 +171,8 @@ const StyledImage = styled.img`
 
 const CustomSidebar = () => {
   const [open, setOpen] = useState(false);
-  const [blogsVisible, setBlogsVisible] = useState(true);
+  const [blogsVisible, setBlogsVisible] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchSettings = async () => {
@@ -182,6 +183,8 @@ const CustomSidebar = () => {
         setBlogsVisible(response.data.blogsVisible);
       } catch (error) {
         console.error("Error fetching settings:", error);
+      } finally {
+        setLoading(false); // Settings have been fetched
       }
     };
 
@@ -258,11 +261,6 @@ const CustomSidebar = () => {
                 Portfolio
               </NavLink>
             </Menu.Item>
-            {/* <Menu.Item key="4">
-              <NavLink to="/blogs" onClick={onClose} activeClassName="active">
-                Blogs
-              </NavLink>
-            </Menu.Item> */}
             {blogsVisible && (
               <Menu.Item key="4">
                 <NavLink to="/blogs" onClick={onClose}>
