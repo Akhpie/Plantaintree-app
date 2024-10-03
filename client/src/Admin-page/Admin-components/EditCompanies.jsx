@@ -51,7 +51,7 @@ const EditCompanies = () => {
     };
     setLoading(true);
     axios
-      .put(`https://plantaintree-app-server.vercel.app/${id}`, data)
+      .put(`https://plantaintree-app-server.vercel.app/companies/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Company has been updated!", { variant: "success" });
