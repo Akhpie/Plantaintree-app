@@ -25,7 +25,7 @@ export const initGoogleAuth = () => {
           clientId:
             "297028572945-r9nejlf0lsf7pssqmtv0huts1bn8jtac.apps.googleusercontent.com",
           scope:
-            "email profile openid https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/blogger https://www.googleapis.com/auth/tasks https://www.googleapis.com/auth/calendar.events",
+            "email profile openid https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/blogger https://www.googleapis.com/auth/tasks https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/contacts",
         })
         .then(() => {
           isGapiInitialized = true; // Set initialization state

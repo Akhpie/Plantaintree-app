@@ -145,6 +145,9 @@ const AdminHome = () => {
             <Menu.Item key="7">
               <Link to="schedule">Event Scheduler</Link>
             </Menu.Item>
+            <Menu.Item key="11">
+              <Link to="blockday">Block Events</Link>
+            </Menu.Item>
           </SubMenu>
 
           <Menu.Item key="8" icon={<AreaChartOutlined />}>

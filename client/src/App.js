@@ -26,6 +26,7 @@ import Analytics from "./Admin-page/Analytics-tab/Analytics";
 import ReactGA from "react-ga4";
 import NoteMaker from "./Admin-page/Scheduler-tab/NoteMaker";
 import Schedule from "./Admin-page/Scheduler-tab/Schedule";
+import OutOfOffice from "./Admin-page/Scheduler-tab/OutOfOffice";
 
 const measurementId = "G-K0PB7PN58Z";
 ReactGA.initialize(measurementId);
@@ -122,6 +123,7 @@ const App = () => {
               <Route path="analytics" element={<Analytics />} />
               <Route path="notemaker" element={<NoteMaker />} />
               <Route path="schedule" element={<Schedule />} />
+              <Route path="blockday" element={<OutOfOffice />} />
               <Route path="companyDelete/:id" element={<DeleteCompany />} />
               <Route path="showCompanies/:id" element={<ShowCompany />} />
               <Route path="editCompanies/:id" element={<EditCompanies />} />
