@@ -1,6 +1,6 @@
 {
   "short_name": "PlantainTree",
-  "name": "PlantainTree Ventures",
+  "name": "Plantain Tree Ventures",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,5 +22,5 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "description": "Explore our portfolio and services at PlantainTree Ventures."
+  "description": "Investing in promising startups in pre-seed and seed rounds."
 }
