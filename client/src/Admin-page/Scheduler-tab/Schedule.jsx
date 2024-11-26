@@ -18,6 +18,9 @@ import {
   ExclamationCircleOutlined,
   ReloadOutlined,
   SearchOutlined,
+  VideoCameraOutlined,
+  VideoCameraAddOutlined,
+  LoginOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
 import moment from "moment";
@@ -422,35 +425,6 @@ const Schedule = () => {
           loading={isLoading}
           bordered
           dataSource={filteredUpcomingEvents}
-          renderItem={(item) => (
-            <List.Item
-              actions={[
-                <Button
-                  type="primary"
-                  icon={<EditOutlined />}
-                  onClick={() => handleEditEvent(item)}
-                />,
-                <Button
-                  type="primary"
-                  danger
-                  icon={<DeleteOutlined />}
-                  onClick={() => showDeleteConfirm(item.id)}
-                />,
-              ]}
-            >
-              <List.Item.Meta
-                title={item.summary}
-                description={`${moment(item.start.dateTime).format(
-                  "MMM DD, YYYY HH:mm"
-                )} - ${moment(item.end.dateTime).format("MMM DD, YYYY HH:mm")}`}
-              />
-            </List.Item>
-          )}
-        /> */}
-        <List
-          loading={isLoading}
-          bordered
-          dataSource={filteredUpcomingEvents}
           renderItem={(item) => {
             const meetLink = getMeetLink(item);
             return (
@@ -490,6 +464,83 @@ const Schedule = () => {
                       {meetLink && (
                         <div style={{ marginTop: 8 }}>
                           <Typography.Link href={meetLink} target="_blank">
+                            Meet Link: {meetLink}
+                          </Typography.Link>
+                        </div>
+                      )}
+                    </div>
+                  }
+                />
+              </List.Item>
+            );
+          }}
+        /> */}
+        <List
+          loading={isLoading}
+          bordered
+          dataSource={filteredUpcomingEvents}
+          renderItem={(item) => {
+            const meetLink = getMeetLink(item);
+            return (
+              <List.Item
+                actions={[
+                  meetLink && (
+                    <Button
+                      key="join"
+                      type="primary"
+                      icon={<VideoCameraOutlined />} // Added icon
+                      onClick={() => joinMeet(meetLink)}
+                      style={{
+                        background: "#00A36C", // Nice green color for video calls
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                      }}
+                    >
+                      Join Meet
+                    </Button>
+                  ),
+                  <Button
+                    type="primary"
+                    icon={<EditOutlined />}
+                    onClick={() => handleEditEvent(item)}
+                  />,
+                  <Button
+                    type="primary"
+                    danger
+                    icon={<DeleteOutlined />}
+                    onClick={() => showDeleteConfirm(item.id)}
+                  />,
+                ].filter(Boolean)}
+              >
+                <List.Item.Meta
+                  title={
+                    <Space>
+                      {item.summary}
+                      {meetLink && (
+                        <VideoCameraAddOutlined style={{ color: "#00A36C" }} />
+                      )}
+                    </Space>
+                  }
+                  description={
+                    <div>
+                      <div>{`${moment(item.start.dateTime).format(
+                        "MMM DD, YYYY HH:mm"
+                      )} - ${moment(item.end.dateTime).format(
+                        "MMM DD, YYYY HH:mm"
+                      )}`}</div>
+                      {meetLink && (
+                        <div style={{ marginTop: 8 }}>
+                          <Typography.Link
+                            href={meetLink}
+                            target="_blank"
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <LoginOutlined />
                             Meet Link: {meetLink}
                           </Typography.Link>
                         </div>
