@@ -47,6 +47,22 @@ const Schedule = () => {
   const [currentPastPage, setCurrentPastPage] = useState(1);
   const pageSize = 5;
 
+  const getMeetLink = (event) => {
+    if (event.conferenceData && event.conferenceData.entryPoints) {
+      const meetEntry = event.conferenceData.entryPoints.find(
+        (entry) => entry.entryPointType === "video"
+      );
+      return meetEntry ? meetEntry.uri : null;
+    }
+    return null;
+  };
+
+  const joinMeet = (meetLink) => {
+    if (meetLink) {
+      window.open(meetLink, "_blank");
+    }
+  };
+
   useEffect(() => {
     const requestNotificationPermission = async () => {
       const permission = await Notification.requestPermission();
@@ -402,7 +418,7 @@ const Schedule = () => {
           style={{ margin: "20px 0", maxWidth: "600px" }}
         />
         <Title level={4}>Upcoming Events</Title>
-        <List
+        {/* <List
           loading={isLoading}
           bordered
           dataSource={filteredUpcomingEvents}
@@ -430,6 +446,60 @@ const Schedule = () => {
               />
             </List.Item>
           )}
+        /> */}
+        <List
+          loading={isLoading}
+          bordered
+          dataSource={filteredUpcomingEvents}
+          renderItem={(item) => {
+            const meetLink = getMeetLink(item);
+            return (
+              <List.Item
+                actions={[
+                  meetLink && (
+                    <Button
+                      key="join"
+                      type="primary"
+                      onClick={() => joinMeet(meetLink)}
+                    >
+                      Join Meet
+                    </Button>
+                  ),
+                  <Button
+                    type="primary"
+                    icon={<EditOutlined />}
+                    onClick={() => handleEditEvent(item)}
+                  />,
+                  <Button
+                    type="primary"
+                    danger
+                    icon={<DeleteOutlined />}
+                    onClick={() => showDeleteConfirm(item.id)}
+                  />,
+                ].filter(Boolean)}
+              >
+                <List.Item.Meta
+                  title={item.summary}
+                  description={
+                    <div>
+                      <div>{`${moment(item.start.dateTime).format(
+                        "MMM DD, YYYY HH:mm"
+                      )} - ${moment(item.end.dateTime).format(
+                        "MMM DD, YYYY HH:mm"
+                      )}`}</div>
+                      {meetLink && (
+                        <div style={{ marginTop: 8 }}>
+                          <Typography.Link href={meetLink} target="_blank">
+                            Meet Link: {meetLink}
+                          </Typography.Link>
+                        </div>
+                      )}
+                    </div>
+                  }
+                />
+              </List.Item>
+            );
+          }}
         />
 
         <Title level={4}>Past Events</Title>
