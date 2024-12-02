@@ -190,6 +190,7 @@ const AdminLogin = ({ setIsAuthenticated }) => {
     "akhilpickle19@gmail.com",
     "gopala.jasti@gmail.com",
     "gopijasti1@gmail.com",
+    "plantaintreeventures@gmail.com",
   ];
 
   useEffect(() => {
