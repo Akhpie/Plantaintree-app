@@ -30,8 +30,8 @@ const About = () => {
             <div className="info-box">
               <ul className="info-list">
                 <li className="info-item">
-                  <h3>Sector-Agnostic</h3>
-                  <p>
+                  <h3 style={{ fontWeight: 500 }}>Sector-Agnostic</h3>
+                  <p className="footer-text-team">
                     Our focus is on identifying and backing startups with strong
                     founding teams that are dedicated to addressing genuine pain
                     points and delivering real value to customers.
@@ -43,8 +43,8 @@ const About = () => {
                     <span className="dot">•</span>
                     <span className="dot">•</span>
                   </div>
-                  <h3>Founding Team</h3>
-                  <p>
+                  <h3 style={{ fontWeight: 500 }}>Founding Team</h3>
+                  <p className="footer-text-team">
                     We believe that the strength of the founding team is
                     crucial, as it drives the vision, resilience, and execution
                     necessary for a startup’s success.

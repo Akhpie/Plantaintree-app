@@ -92,36 +92,6 @@ const Home = () => {
             </Col>
           </Row>
         </section>
-
-        {/* <TimelineComponent /> */}
-        {/* <section className="cta">
-          <Row justify="center">
-            <Col xs={24} md={12}>
-              <h2 className="contact-text">
-                Ready to Transform Your Business?
-              </h2>
-              <div>
-                <Button
-                  type="primary"
-                  size="large"
-                  className="cta-button"
-                  onClick={showModal}
-                >
-                  Contact Us
-                </Button>
-                <Modal
-                  title="Contact Us"
-                  visible={isModalVisible}
-                  onOk={handleOk}
-                  onCancel={handleCancel}
-                  footer={null}
-                >
-                  <ContactForm />
-                </Modal>
-              </div>
-            </Col>
-          </Row>
-        </section> */}
       </div>
       <Footer />
     </>
