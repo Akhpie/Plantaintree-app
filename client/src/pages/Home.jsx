@@ -39,7 +39,7 @@ const Home = () => {
           <Row justify="left" align="middle" className="hero-row">
             <Col className="hero-text">
               <h1 className="hero-heading" style={{ marginBottom: "30px" }}>
-                Welcome to Our <span className="span-class">Venture</span>
+                Welcome to Our <span className="span-class">sVenture</span>
               </h1>
               <p className="hero-caption">
                 {/* Empowering innovation and success through cutting-edge
