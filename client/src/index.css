@@ -17,6 +17,29 @@
 /* for stylish headings:
 -use: font-family: "Baskervville SC", serif; */
 
+/* Global theme support */
+html,
+body,
+#root {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme (default) */
+html.light,
+body.light,
+#root.light {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Dark theme */
+html.dark,
+body.dark,
+#root.dark {
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+  color: #e0e8f0;
+}
+
 body {
   font-family: var(--font-family-normal);
 }

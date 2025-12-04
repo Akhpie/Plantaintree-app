@@ -8,16 +8,28 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
 const StyledArrow = styled(ArrowRightOutlined)`
-  font-size: 18px;
-  color: #1890ff;
-  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 20px;
+  color: #ffffff !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   transform: rotate(-45deg);
-  background-color: rgb(226, 226, 226);
+  background: linear-gradient(135deg, #0f3460 0%, #1a5490 100%) !important;
   border-radius: 50%;
-  padding: 10px;
+  padding: 12px !important;
+  border: 2px solid #ffffff !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 50px !important;
+  height: 50px !important;
+  box-sizing: border-box;
+  min-width: 50px;
+  box-shadow: 0 4px 12px rgba(15, 52, 96, 0.2);
+  
   &:hover {
-    color: #40a9ff;
+    color: #ffffff !important;
     transform: rotate(0deg) scale(1.2);
+    background: linear-gradient(135deg, #1a5490 0%, #0f3460 100%) !important;
+    box-shadow: 0 8px 24px rgba(15, 52, 96, 0.4) !important;
   }
 `;
 const LogoImage = styled.img`
@@ -28,21 +40,96 @@ const LogoImage = styled.img`
   margin: 0 auto;
 `;
 const StyledTable = styled(Table)`
-  .ant-table-thead > tr > th {
-    font-size: 20px;
+  /* Wrapper styling */
+  .ant-table-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid #e8eef7;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
+    box-shadow: 0 12px 32px rgba(15, 52, 96, 0.12);
+  }
+
+  /* Table styling */
+  .ant-table {
     background-color: transparent;
-    color: #333;
-    text-align: center;
+    border-radius: 12px;
   }
+
+  /* Head styling */
+  .ant-table-thead > tr > th {
+    font-size: 16px;
+    background: linear-gradient(135deg, #0f3460 0%, #1a5490 100%) !important;
+    color: #ffffff !important;
+    text-align: center;
+    font-weight: 700;
+    padding: 20px 16px;
+    box-shadow: 0 4px 12px rgba(15, 52, 96, 0.15);
+    border-bottom: 2px solid #1a5490 !important;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+  }
+
+  /* Body rows */
   .ant-table-tbody > tr {
-    // background-color: #cad6fa !important;
-    height: 180px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+    border-bottom: 2px solid #e0ebff;
     text-align: center;
+    height: auto;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+
+  .ant-table-tbody > tr:hover {
+    background: linear-gradient(135deg, #f0f5ff 0%, #e8f0ff 100%);
+    box-shadow: 0 4px 16px rgba(100, 181, 246, 0.15);
+  }
+
+  .ant-table-tbody > tr > td {
+    color: #1a2332;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 18px 16px;
+    font-family: "Moderustic", sans-serif;
+    vertical-align: middle;
+  }
+
+  .ant-table-tbody > tr:hover > td {
+    color: #0f3460;
+    font-weight: 600;
+  }
+
+  /* Cell styling */
   .ant-table-cell {
-    font-size: 18px;
+    font-size: 15px;
     font-family: "Moderustic", sans-serif;
     background-color: transparent;
+    border-color: transparent;
+  }
+
+  /* Pagination styling */
+  .ant-pagination-item-active {
+    background: linear-gradient(135deg, #0f3460 0%, #1a5490 100%) !important;
+    border-color: #0f3460 !important;
+  }
+
+  .ant-pagination-item-active a {
+    color: #ffffff !important;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .ant-table-wrapper {
+      border-radius: 12px;
+    }
+
+    .ant-table-thead > tr > th {
+      font-size: 13px;
+      padding: 14px 10px;
+    }
+
+    .ant-table-tbody > tr > td {
+      font-size: 13px;
+      padding: 12px 10px;
+    }
   }
 `;
 
