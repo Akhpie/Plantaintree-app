@@ -216,7 +216,13 @@ const CompanyTable = ({ companies, showAdminColumns = true }) => {
     },
   ].filter(Boolean);
 
-  const dataSource = companies.map((company, index) => ({
+  const sortedCompanies = [...companies].sort((a, b) => {
+    const yearA = parseInt(a.year) || 0;
+    const yearB = parseInt(b.year) || 0;
+    return yearB - yearA; // Descending order (latest first)
+  });
+
+  const dataSource = sortedCompanies.map((company, index) => ({
     ...company,
     index: index + 1,
   }));
