@@ -104,14 +104,6 @@ const About = () => {
                 isVisible[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
               }`}
             >
-              {/* Glowing Badge */}
-              <div className="inline-block mb-8 relative group">
-                <div className="absolute inset-0 bg-purple-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-                <span className="relative text-xs font-black tracking-[0.4em] text-purple-400 uppercase bg-gradient-to-r from-purple-950 to-pink-950 px-8 py-3 rounded-full border border-purple-500/50 backdrop-blur-sm shadow-lg shadow-purple-500/20" style={{ fontFamily: "'Outfit', sans-serif", letterSpacing: '0.3em' }}>
-                  ✨ About Us
-                </span>
-              </div>
-              
               {/* Hero Title */}
               <h1 className="text-6xl sm:text-7xl lg:text-9xl font-black text-white mb-8 leading-[0.9] tracking-tighter" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 Empowering Innovation
@@ -150,7 +142,7 @@ const About = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 rounded-[2.5rem] opacity-50 blur-2xl"></div>
             
             {/* Card Content */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-2xl rounded-[2.5rem] p-12 sm:p-16 border border-gray-700/50 shadow-2xl">
+            <div className="relative bg-white/20 dark:bg-white/10 backdrop-blur-3xl rounded-[2.5rem] p-12 sm:p-16 border border-white/30 dark:border-white/20 shadow-2xl">
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-1.5 w-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full shadow-lg shadow-blue-500/50"></div>
                 <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Our Mission</h2>
@@ -187,24 +179,18 @@ const About = () => {
             {/* Sector-Agnostic Card */}
             <div 
               ref={el => observerRefs.current[3] = el}
-              className={`group relative transition-all duration-1000 ${
+              className={`relative transition-all duration-1000 ${
                 isVisible[3] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
               }`}
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 rounded-3xl opacity-0 group-hover:opacity-75 blur-lg transition-all duration-500"></div>
-              <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-3xl p-10 sm:p-12 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-3 shadow-2xl hover:shadow-blue-500/20">
+              <div className="relative bg-white/10 backdrop-blur-3xl rounded-3xl p-10 sm:p-12 border border-white/20 shadow-2xl">
                 <div className="mb-8">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-blue-500/50">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                    </svg>
-                  </div>
-                  <h3 className="text-4xl font-black text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                  <h3 className="text-4xl font-black text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
                     Sector-Agnostic
                   </h3>
                   <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mb-6 shadow-lg shadow-blue-500/50"></div>
                 </div>
-                <p className="text-lg text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
+                <p className="text-lg text-gray-400 leading-relaxed" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
                   Our focus is on identifying and backing startups with{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 font-semibold">strong founding teams</span> that 
                   are dedicated to addressing genuine pain points and delivering real value to customers.
@@ -215,24 +201,18 @@ const About = () => {
             {/* Founding Team Card */}
             <div 
               ref={el => observerRefs.current[4] = el}
-              className={`group relative transition-all duration-1000 ${
+              className={`relative transition-all duration-1000 ${
                 isVisible[4] ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
               }`}
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-3xl opacity-0 group-hover:opacity-75 blur-lg transition-all duration-500"></div>
-              <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-3xl p-10 sm:p-12 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 hover:-translate-y-3 shadow-2xl hover:shadow-purple-500/20">
+              <div className="relative bg-white/10 backdrop-blur-3xl rounded-3xl p-10 sm:p-12 border border-white/20 shadow-2xl">
                 <div className="mb-8">
-                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-purple-500/50">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-4xl font-black text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                  <h3 className="text-4xl font-black text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
                     Founding Team
                   </h3>
                   <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6 shadow-lg shadow-purple-500/50"></div>
                 </div>
-                <p className="text-lg text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
+                <p className="text-lg text-gray-400 leading-relaxed" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
                   We believe that the strength of the founding team is crucial, as it drives the{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">vision, resilience, and execution</span> necessary 
                   for a startup's success.
@@ -242,7 +222,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Stats Section */}
+        {/* Stats Section with Enhanced Glass Morphism */}
         <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pb-32">
           <div 
             ref={el => observerRefs.current[5] = el}
@@ -250,37 +230,52 @@ const About = () => {
               isVisible[5] ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
             }`}
           >
-            {/* Glowing Background */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 rounded-[2.5rem] opacity-50 blur-2xl"></div>
-            
-            {/* Stats Container */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-2xl rounded-[2.5rem] p-16 sm:p-20 border border-gray-700/50 shadow-2xl">
+            {/* Enhanced Glass Morphism Container */}
+            <div className="relative bg-white/15 dark:bg-white/8 backdrop-blur-2xl rounded-2xl p-16 sm:p-24 border border-white/25 dark:border-white/15 shadow-2xl" 
+              style={{
+                background: 'rgba(255, 255, 255, 0.12)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '1.5rem',
+                boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 20px rgba(255, 255, 255, 0.1)'
+              }}>
               <div className="grid sm:grid-cols-3 gap-16 text-center">
                 {/* Stat 1 */}
-                <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                  <div className="relative text-7xl sm:text-8xl font-black bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent mb-5 group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <div className="relative">
+                  <div className="relative text-7xl sm:text-8xl font-black mb-6 drop-shadow-lg" 
+                    style={{ 
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      color: '#06B6D4',
+                      textShadow: '0 0 30px rgba(6, 182, 212, 0.5), 0 0 60px rgba(6, 182, 212, 0.3)'
+                    }}>
                     100%
                   </div>
-                  <div className="text-gray-400 text-xl font-bold tracking-wide group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: '600' }}>Founder-First Approach</div>
+                  <div className="text-white text-lg font-semibold tracking-wide" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '600' }}>Founder-First Approach</div>
                 </div>
                 
                 {/* Stat 2 */}
-                <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                  <div className="relative text-7xl sm:text-8xl font-black bg-gradient-to-br from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent mb-5 group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <div className="relative">
+                  <div className="relative text-7xl sm:text-8xl font-black mb-6 drop-shadow-lg" 
+                    style={{ 
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      color: '#EC4899',
+                      textShadow: '0 0 30px rgba(236, 72, 153, 0.5), 0 0 60px rgba(236, 72, 153, 0.3)'
+                    }}>
                     Early
                   </div>
-                  <div className="text-gray-400 text-xl font-bold tracking-wide group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: '600' }}>Stage Focus</div>
+                  <div className="text-white text-lg font-semibold tracking-wide" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '600' }}>Stage Focus</div>
                 </div>
                 
                 {/* Stat 3 */}
-                <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                  <div className="relative text-7xl sm:text-8xl font-black bg-gradient-to-br from-cyan-400 via-blue-400 to-cyan-500 bg-clip-text text-transparent mb-5 group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <div className="relative">
+                  <div className="relative text-7xl sm:text-8xl font-black mb-6 drop-shadow-lg" 
+                    style={{ 
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      color: '#06B6D4',
+                      textShadow: '0 0 30px rgba(6, 182, 212, 0.5), 0 0 60px rgba(6, 182, 212, 0.3)'
+                    }}>
                     ∞
                   </div>
-                  <div className="text-gray-400 text-xl font-bold tracking-wide group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: '600' }}>Growth Potential</div>
+                  <div className="text-white text-lg font-semibold tracking-wide" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '600' }}>Growth Potential</div>
                 </div>
               </div>
             </div>

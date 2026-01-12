@@ -49,7 +49,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container" style={{ margin: 0, padding: 0 }}>
       <form ref={formRef} onSubmit={handleFinish} className="contact-form">
         <div className="form-group">
           <label htmlFor="user_name">Name</label>

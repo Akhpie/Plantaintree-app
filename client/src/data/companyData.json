@@ -30,9 +30,15 @@
     "websiteUrl": "https://www.lawyered.in/"
   },
   {
-    "name": "PowerBot",
-    "logoSrc": "/assets/images/powerbot-icon.png",
+    "name": "Heliware",
+    "logoSrc": "/assets/images/heliware-no-bg.png",
     "description": "Company C description here.",
-    "websiteUrl": "https://powerbot.in/"
+    "websiteUrl": "https://www.heliware.co.in/"
+  },
+  {
+    "name": "UpContent",
+    "logoSrc": "/assets/images/upcontent-icon.webp",
+    "description": "Company C description here.",
+    "websiteUrl": "https://www.upcontent.com/"
   }
 ]

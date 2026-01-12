@@ -104,14 +104,6 @@ const Team = () => {
                 isVisible[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
               }`}
             >
-              {/* Glowing Badge */}
-              <div className="inline-block mb-8 relative group">
-                <div className="absolute inset-0 bg-cyan-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-                <span className="relative text-xs font-black tracking-[0.4em] text-cyan-400 uppercase bg-gradient-to-r from-cyan-950 to-blue-950 px-8 py-3 rounded-full border border-cyan-500/50 backdrop-blur-sm shadow-lg shadow-cyan-500/20" style={{ fontFamily: "'Outfit', sans-serif", letterSpacing: '0.3em' }}>
-                  ✨ Our Team
-                </span>
-              </div>
-              
               {/* Hero Title */}
               <h1 className="text-6xl sm:text-7xl lg:text-9xl font-black text-white mb-8 leading-[0.9] tracking-tighter" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 Meet the
@@ -148,7 +140,7 @@ const Team = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 rounded-[2.5rem] opacity-50 blur-2xl"></div>
             
             {/* Card Content */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-2xl rounded-[2.5rem] p-12 sm:p-16 border border-gray-700/50 shadow-2xl">
+            <div className="relative bg-white/20 dark:bg-white/10 backdrop-blur-3xl rounded-[2.5rem] p-12 sm:p-16 border border-white/30 dark:border-white/20 shadow-2xl">
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-1.5 w-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full shadow-lg shadow-blue-500/50"></div>
                 <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Our Vision</h2>
@@ -168,35 +160,32 @@ const Team = () => {
               <div 
                 key={index}
                 ref={el => observerRefs.current[index + 2] = el}
-                className={`group relative transition-all duration-1000 ${
+                className={`relative transition-all duration-1000 ${
                   isVisible[index + 2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                {/* Glowing Border Effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-purple-500 rounded-3xl opacity-0 group-hover:opacity-75 blur-lg transition-all duration-500"></div>
-                
                 {/* Card Content */}
-                <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-3xl border border-gray-700/50 hover:border-blue-500/50 overflow-hidden transition-all duration-500 hover:-translate-y-3 shadow-2xl hover:shadow-blue-500/20">
+                <div className="relative bg-white/20 dark:bg-white/10 backdrop-blur-3xl rounded-3xl border border-white/30 dark:border-white/20 overflow-hidden shadow-2xl">
                   {/* Image Container */}
                   <div className="relative h-80 overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
                     <img 
                       src={member.imgSrc}
                       alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60"></div>
                   </div>
                   
                   {/* Content */}
                   <div className="p-8">
-                    <h3 className="text-3xl font-black text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                    <h3 className="text-3xl font-black text-white mb-2" style={{ fontFamily: "'Outfit', sans-serif" }}>
                       {member.name}
                     </h3>
                     <p className="text-blue-400 font-bold mb-4 text-lg" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: '600' }}>
                       {member.role}
                     </p>
-                    <p className="text-gray-400 leading-relaxed mb-6 group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
+                    <p className="text-gray-400 leading-relaxed mb-6" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
                       {member.bio}
                     </p>
                     
@@ -205,13 +194,13 @@ const Team = () => {
                       href={member.linkedinUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-bold group/link transition-all duration-300"
+                      className="inline-flex items-center gap-2 text-cyan-400 font-bold transition-all duration-300"
                       style={{ fontFamily: "'Outfit', sans-serif", fontWeight: '600' }}
                     >
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                       </svg>
-                      <span className="group-hover/link:translate-x-1 transition-transform duration-300">
+                      <span>
                         Connect on LinkedIn
                       </span>
                     </a>
@@ -234,44 +223,29 @@ const Team = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 rounded-[2.5rem] opacity-50 blur-2xl"></div>
             
             {/* Values Container */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-2xl rounded-[2.5rem] p-12 sm:p-16 border border-gray-700/50 shadow-2xl">
+            <div className="relative bg-white/20 dark:bg-white/10 backdrop-blur-3xl rounded-[2.5rem] p-12 sm:p-16 border border-white/30 dark:border-white/20 shadow-2xl">
               <h2 className="text-4xl sm:text-5xl font-black text-white text-center mb-16" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 Our Core Values
               </h2>
               
               <div className="grid sm:grid-cols-3 gap-8 lg:gap-12">
-                <div className="text-center group">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-blue-500/50">
-                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-3xl font-black text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>Innovation</h3>
-                  <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
+                <div className="text-center">
+                  <h3 className="text-3xl font-black text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Innovation</h3>
+                  <p className="text-gray-400 leading-relaxed" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
                     Pushing boundaries and embracing new ideas to drive progress
                   </p>
                 </div>
 
-                <div className="text-center group">
-                  <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-purple-500/50">
-                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-3xl font-black text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>Collaboration</h3>
-                  <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
+                <div className="text-center">
+                  <h3 className="text-3xl font-black text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Collaboration</h3>
+                  <p className="text-gray-400 leading-relaxed" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
                     Working together with founders to achieve extraordinary results
                   </p>
                 </div>
 
-                <div className="text-center group">
-                  <div className="w-24 h-24 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-cyan-500/50">
-                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-3xl font-black text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-400 transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>Integrity</h3>
-                  <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
+                <div className="text-center">
+                  <h3 className="text-3xl font-black text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Integrity</h3>
+                  <p className="text-gray-400 leading-relaxed" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '400' }}>
                     Building trust through transparency and ethical practices
                   </p>
                 </div>
@@ -292,7 +266,7 @@ const Team = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 rounded-[2.5rem] opacity-50 blur-2xl"></div>
             
             {/* Footer Card Content */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-2xl rounded-[2.5rem] p-12 sm:p-16 border border-gray-700/50 shadow-2xl text-center">
+            <div className="relative bg-white/20 dark:bg-white/10 backdrop-blur-3xl rounded-[2.5rem] p-12 sm:p-16 border border-white/30 dark:border-white/20 shadow-2xl text-center">
               <p className="text-xl sm:text-2xl text-gray-300 leading-relaxed max-w-5xl mx-auto" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '300' }}>
                 Together, we bring a{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 font-semibold">diverse set of skills and experiences</span>, all focused on fostering{' '}

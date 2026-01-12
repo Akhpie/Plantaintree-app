@@ -1,49 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap");
 
-/* Drawer header styling */
-:where(.css-dev-only-do-not-override-11lehqq).ant-drawer .ant-drawer-header {
-  border-bottom: none !important;
-  background: linear-gradient(135deg, #0f3460 0%, #1a5490 100%) !important;
-  padding: 20px !important;
+/* ==========================================
+   CUSTOM SIDEBAR DRAWER STYLING
+   ========================================== */
+
+/* Header container */
+.header-container {
+  gap: 0;
 }
 
-:where(.css-dev-only-do-not-override-11lehqq).ant-drawer .ant-drawer-title {
-  color: #ffffff !important;
-  font-weight: 900 !important;
-  font-size: 20px !important;
-  letter-spacing: 0.5px;
-}
-
-/* Drawer close button */
-:where(.css-dev-only-do-not-override-11lehqq).ant-drawer .ant-drawer-close {
-  color: #ffffff !important;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
-}
-
-:where(.css-dev-only-do-not-override-11lehqq).ant-drawer .ant-drawer-close:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: scale(1.1);
-}
-
-/* Drawer body styling with stunning gradient */
-:where(.css-dev-only-do-not-override-11lehqq).ant-drawer-body {
-  background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 50%, #eef5ff 100%) !important;
-  padding: 40px 20px !important;
-}
-
+/* Sub header text */
 .sub-header-text {
   font-size: 1.5rem;
   display: block;
-  font-family: var(--logo--font);
+  font-family: "Titillium Web", sans-serif;
   color: #2f4f4f;
   padding-bottom: 5px;
   float: right;
@@ -59,6 +30,180 @@
   background-size: 100% 2px;
   background-repeat: no-repeat;
 }
-.header-container {
-  gap: 0;
+
+html.dark .sub-header-text,
+body.dark .sub-header-text,
+#root.dark .sub-header-text {
+  color: #e0e8f0;
+  background-image: linear-gradient(
+    to right,
+    rgba(224, 232, 240, 0),
+    rgba(224, 232, 240, 1),
+    rgba(224, 232, 240, 0)
+  );
+}
+
+/* ==========================================
+   DRAWER OVERLAY & PANEL
+   ========================================== */
+
+/* Drawer overlay - semi-transparent backdrop */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+html.dark .drawer-overlay,
+body.dark .drawer-overlay,
+#root.dark .drawer-overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* Drawer panel */
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 450px;
+  max-width: 100vw;
+  background: #ffffff !important;
+  box-shadow: -2px 0 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-panel.open {
+  transform: translateX(0);
+}
+
+html.dark .drawer-panel,
+body.dark .drawer-panel,
+#root.dark .drawer-panel {
+  background: #1a1a1a !important;
+  box-shadow: -2px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Close button section */
+.drawer-close-section {
+  display: flex;
+  justify-content: flex-start;
+  padding: 24px;
+}
+
+.drawer-close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #2f4f4f;
+  font-size: 32px;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  font-weight: 300;
+}
+
+.drawer-close-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000000;
+}
+
+html.dark .drawer-close-button,
+body.dark .drawer-close-button,
+#root.dark .drawer-close-button {
+  color: #e0e8f0;
+}
+
+html.dark .drawer-close-button:hover,
+body.dark .drawer-close-button:hover,
+#root.dark .drawer-close-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Menu container */
+.drawer-menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 40px 60px;
+  gap: 30px;
+}
+
+/* Menu items */
+.drawer-menu-item {
+  font-size: 48px;
+  font-family: "Baskervville SC", serif;
+  font-weight: 400;
+  color: #2f4f4f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+.drawer-menu-item:hover {
+  color: #004d40;
+}
+
+.drawer-menu-item.active {
+  font-weight: bold;
+  color: #2f4f4f;
+}
+
+html.dark .drawer-menu-item,
+body.dark .drawer-menu-item,
+#root.dark .drawer-menu-item {
+  color: #e0e8f0;
+}
+
+html.dark .drawer-menu-item:hover,
+body.dark .drawer-menu-item:hover,
+#root.dark .drawer-menu-item:hover {
+  color: #90caf9;
+}
+
+html.dark .drawer-menu-item.active,
+body.dark .drawer-menu-item.active,
+#root.dark .drawer-menu-item.active {
+  color: #64b5f6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .drawer-panel {
+    width: 100vw;
+  }
+
+  .drawer-menu-item {
+    font-size: 36px;
+  }
+
+  .drawer-menu-container {
+    padding: 20px 40px;
+  }
 }
