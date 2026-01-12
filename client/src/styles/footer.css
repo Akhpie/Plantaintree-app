@@ -35,24 +35,46 @@
 }
 
 .contact-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   margin-top: 10px;
   padding: 10px 20px;
+
   background: linear-gradient(135deg, #0f3460 0%, #1a5490 100%);
-  color: #fff;
+  color: #ffffff !important;              /* FORCE visible text */
   text-decoration: none;
+
   border-radius: 8px;
-  transition: all 0.3s ease;
-  cursor: pointer;
   border: none;
+  cursor: pointer;
+
   font-weight: 600;
   font-size: 14px;
+  line-height: 1.2;
+
+  opacity: 1 !important;                  /* prevent inherited opacity */
+  mix-blend-mode: normal !important;      /* prevent blend issues */
+  isolation: isolate;                     /* isolates from footer effects */
+
+  transition: background 0.3s ease,
+              box-shadow 0.3s ease,
+              transform 0.3s ease;
 }
 
+/* Hover (optional – remove if you want static) */
 .contact-button:hover {
   background: linear-gradient(135deg, #1a5490 0%, #0f3460 100%);
   box-shadow: 0 8px 20px rgba(15, 52, 96, 0.3);
   transform: translateY(-2px);
+}
+
+/* If button contains text node or span */
+.contact-button *,
+.contact-button span {
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 
 /* Contact Form Styles */
