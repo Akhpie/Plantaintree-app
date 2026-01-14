@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Button,
   List,
@@ -48,6 +48,8 @@ const Schedule = () => {
   const [isLoadingGapi, setIsLoadingGapi] = useState(true);
   const [notificationPermission, setNotificationPermission] = useState(false);
   const [currentPastPage, setCurrentPastPage] = useState(1);
+  const paginationRef = useRef(null);
+  const pastEventListRef = useRef(null);
   const pageSize = 5;
 
   const getMeetLink = (event) => {
@@ -554,27 +556,47 @@ const Schedule = () => {
         />
 
         <Title level={4}>Past Events</Title>
-        <List
-          loading={isLoading}
-          bordered
-          // dataSource={filteredPastEvents}
-          dataSource={paginatedPastEvents}
-          renderItem={(item) => (
-            <List.Item>
-              <List.Item.Meta
-                title={item.summary}
-                description={`${moment(item.start.dateTime).format(
-                  "MMM DD, YYYY HH:mm"
-                )} - ${moment(item.end.dateTime).format("MMM DD, YYYY HH:mm")}`}
+        <div ref={pastEventListRef}>
+          <List
+            loading={isLoading}
+            bordered
+            // dataSource={filteredPastEvents}
+            dataSource={paginatedPastEvents}
+            renderItem={(item) => (
+              <List.Item>
+                <List.Item.Meta
+                  title={item.summary}
+                  description={`${moment(item.start.dateTime).format(
+                    "MMM DD, YYYY HH:mm"
+                  )} - ${moment(item.end.dateTime).format("MMM DD, YYYY HH:mm")}`}
               />
             </List.Item>
           )}
-        />
+          />
+        </div>
         <Pagination
+          ref={paginationRef}
           current={currentPastPage}
           pageSize={pageSize}
           total={filteredPastEvents.length}
-          onChange={(page) => setCurrentPastPage(page)}
+          onChange={(page) => {
+            setCurrentPastPage(page);
+            // Scroll to show the table content in the center of the screen
+            if (pastEventListRef.current) {
+              const element = pastEventListRef.current;
+              const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+              const elementHeight = element.getBoundingClientRect().height;
+              const windowHeight = window.innerHeight;
+              
+              // Calculate scroll position to center the table on screen
+              const centerPosition = elementPosition + (elementHeight / 2) - (windowHeight / 2);
+              
+              window.scrollTo({
+                top: centerPosition,
+                behavior: "smooth",
+              });
+            }
+          }}
           style={{ marginTop: 16, textAlign: "center" }}
         />
       </Space>

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Button, Drawer, Menu } from "antd";
+import { Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import "../styles/CustomSidebar.css";
 import plantainlogo from "../pages/images/plantain-icon-main.png";
-import { NavLink } from "react-router-dom";
 import ThemeSwitcher from "./ThemeSwitcher";
 import axios from "axios";
 
@@ -21,6 +20,8 @@ const Header = styled.header`
   font-family: "Titillium Web", sans-serif;
   font-size: 34px;
   position: relative;
+  gap: 12px;
+  z-index: 1001;
 
   @media (max-width: 768px) {
     .header-text {
@@ -28,35 +29,12 @@ const Header = styled.header`
     }
     padding-top: 15px;
   }
-`;
 
-const AppTitle = styled.div`
-  font-size: 1.3em;
-  font-weight: 700;
-  // font-family: "Macondo", cursive;
-  font-family: "Baskervville SC", serif;
-  margin-bottom: 0;
-
-  @media (max-width: 768px) {
-    display: block;
+  html.dark &,
+  body.dark &,
+  #root.dark & {
+    color: #e0e8f0;
   }
-`;
-
-const Logo = styled.img`
-  display: none;
-  width: 120px;
-  height: auto;
-
-  @media (max-width: 768px) {
-    display: block;
-    margin-right: 200px;
-  }
-`;
-
-const LogoTwo = styled.img`
-  display: block;
-  width: 150px;
-  border-radius: 50%;
 `;
 
 const HamburgerButton = styled(Button)`
@@ -64,6 +42,13 @@ const HamburgerButton = styled(Button)`
   border: none;
   cursor: pointer;
   color: #2f4f4f;
+
+  html.dark &,
+  body.dark &,
+  #root.dark & {
+    color: #e0e8f0;
+    border-color: #e0e8f0;
+  }
 
   .anticon {
     font-size: 24px;
@@ -74,7 +59,6 @@ const HeaderLinks = styled.div`
   display: flex;
   justify-content: center;
   flex: 1;
-  // background-color: cyan;
   margin-left: 50px;
   margin-right: 50px;
 
@@ -90,72 +74,37 @@ const HeaderLink = styled(NavLink)`
   position: relative;
   display: inline-block;
   padding-bottom: 3px;
+  color: #2f4f4f;
+  transition: color 0.3s ease;
+
+  html.dark &,
+  body.dark &,
+  #root.dark & {
+    color: #64b5f6;
+  }
 
   &.active {
     font-weight: bold;
-    &:after {
-      width: 100%;
-    }
+    color: #004d40;
+  }
+
+  html.dark &.active,
+  body.dark &.active,
+  #root.dark &.active {
+    color: #64b5f6;
   }
 
   &:hover {
     color: #004d40;
   }
 
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: #004d40;
-    transition: width 0.3s ease;
-  }
-
-  &:hover:after {
-    width: 100%;
+  html.dark &:hover,
+  body.dark &:hover,
+  #root.dark &:hover {
+    color: #90caf9;
   }
 `;
 
-const DrawerBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-`;
-
-const StyledMenu = styled(Menu)`
-  // background-color: #80cbc4;
-  color: #2f4f4f;
-  border-right: 0;
-  width: 100%;
-  text-align: center;
-  margin-top: -200px;
-
-  .ant-menu-item {
-    font-size: 42px;
-    font-family: var(--logo--font);
-    background-color: transparent;
-    font-weight: 700px;
-    color: #2f4f4f;
-    margin-bottom: 30px;
-
-    &:hover {
-      color: #004d40;
-    }
-  }
-
-  .ant-menu-item a {
-    color: #2f4f4f;
-    text-decoration: none;
-
-    &:hover {
-      color: #004d40;
-    }
-  }
-`;
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
@@ -164,6 +113,7 @@ const StyledLink = styled(Link)`
 const StyledImage = styled.img`
   width: 300px;
   height: auto;
+  
   @media (max-width: 768px) {
     width: 200px;
   }
@@ -184,7 +134,7 @@ const CustomSidebar = () => {
       } catch (error) {
         console.error("Error fetching settings:", error);
       } finally {
-        setLoading(false); // Settings have been fetched
+        setLoading(false);
       }
     };
 
@@ -204,73 +154,92 @@ const CustomSidebar = () => {
       <Header>
         <StyledLink to="/">
           <div className="header-container">
-            <div className="header-container">
-              <StyledImage
-                src={plantainlogo}
-                alt="PlantainTree Logo"
-                className="logo"
-              />
-            </div>
+            <StyledImage
+              src={plantainlogo}
+              alt="PlantainTree Logo"
+              className="logo"
+            />
           </div>
         </StyledLink>
         <HeaderLinks className="nav-items">
           <HeaderLink to="/about">About</HeaderLink>
           <HeaderLink to="/team">Team</HeaderLink>
           <HeaderLink to="/companies">Portfolio</HeaderLink>
-          {/* <HeaderLink to="/blogs">Blogs</HeaderLink> */}
           {blogsVisible && <HeaderLink to="/blogs">Blogs</HeaderLink>}
         </HeaderLinks>
-        <HamburgerButton
-          type="text"
-          icon={<MenuOutlined />}
-          onClick={showDrawer}
-          className="ham-icon"
-          size="large"
-        />
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <ThemeSwitcher />
+          <HamburgerButton
+            type="text"
+            icon={<MenuOutlined />}
+            onClick={showDrawer}
+            className="ham-icon"
+            size="large"
+          />
+        </div>
       </Header>
-      <Drawer
-        placement="right"
-        width={450}
-        onClose={onClose}
-        open={open}
-        drawerStyle={{
-          color: "#2f4f4f",
-        }}
-        headerStyle={{
-          color: "#2f4f4f",
-        }}
-      >
-        <DrawerBody>
-          <StyledMenu mode="vertical">
-            <Menu.Item key="1">
-              <NavLink to="/about" onClick={onClose} activeClassName="active">
-                About
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <NavLink to="/team" onClick={onClose} activeClassName="active">
-                Team
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <NavLink
-                to="/companies"
-                onClick={onClose}
-                activeClassName="active"
-              >
-                Portfolio
-              </NavLink>
-            </Menu.Item>
-            {blogsVisible && (
-              <Menu.Item key="4">
-                <NavLink to="/blogs" onClick={onClose}>
-                  Blogs
-                </NavLink>
-              </Menu.Item>
-            )}
-          </StyledMenu>
-        </DrawerBody>
-      </Drawer>
+
+      {/* Drawer Overlay */}
+      <div
+        className={`drawer-overlay ${open ? "open" : ""}`}
+        onClick={onClose}
+      />
+
+      {/* Drawer Panel */}
+      <div className={`drawer-panel ${open ? "open" : ""}`}>
+        {/* Close Button */}
+        <div className="drawer-close-section">
+          <button
+            className="drawer-close-button"
+            onClick={onClose}
+            aria-label="Close drawer"
+          >
+            ×
+          </button>
+        </div>
+
+        {/* Menu Items */}
+        <div className="drawer-menu-container">
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `drawer-menu-item ${isActive ? "active" : ""}`
+            }
+            onClick={onClose}
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/team"
+            className={({ isActive }) =>
+              `drawer-menu-item ${isActive ? "active" : ""}`
+            }
+            onClick={onClose}
+          >
+            Team
+          </NavLink>
+          <NavLink
+            to="/companies"
+            className={({ isActive }) =>
+              `drawer-menu-item ${isActive ? "active" : ""}`
+            }
+            onClick={onClose}
+          >
+            Portfolio
+          </NavLink>
+          {blogsVisible && (
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) =>
+                `drawer-menu-item ${isActive ? "active" : ""}`
+              }
+              onClick={onClose}
+            >
+              Blogs
+            </NavLink>
+          )}
+        </div>
+      </div>
     </>
   );
 };
