@@ -1,44 +1,38 @@
 [
   {
+    "name": "Tez Health",
+    "logoSrc": "/assets/images/tez-health-logo.png",
+    "description": "Company description here.",
+    "websiteUrl": ""
+  },
+  {
+    "name": "Barney's",
+    "logoSrc": "/assets/images/Barneys-logo.png",
+    "description": "Company description here.",
+    "websiteUrl": ""
+  },
+  {
+    "name": "Cheero AI",
+    "logoSrc": "/assets/images/cheerio-ai-logo",
+    "description": "Company description here.",
+    "websiteUrl": ""
+  },
+  {
+    "name": "Zweller",
+    "logoSrc": "/assets/images/zweller-logo.webp",
+    "description": "Company description here.",
+    "websiteUrl": ""
+  },
+  {
     "name": "Siply",
     "logoSrc": "/assets/images/siply-icon-modified.png",
-    "description": "Company A description here.",
-    "websiteUrl": "https://siply.in/"
-  },
-  {
-    "name": "Edgeforce",
-    "logoSrc": "/assets/images/edge-force-icon.png",
-    "description": "Company B description here.",
-    "websiteUrl": "https://edgeforce.in/"
-  },
-  {
-    "name": "Tiea",
-    "logoSrc": "/assets/images/tiea-no-bg-icon.png",
-    "description": "Company C description here.",
-    "websiteUrl": "https://www.tieaconnectors.com/"
-  },
-  {
-    "name": "RangDe",
-    "logoSrc": "/assets/images/rangde-logo.svg",
-    "description": "Company C description here.",
-    "websiteUrl": "https://rangde.in/"
-  },
-  {
-    "name": "Lawyered",
-    "logoSrc": "/assets/images/lawyered-icon.png",
-    "description": "Company C description here.",
-    "websiteUrl": "https://www.lawyered.in/"
+    "description": "Company description here.",
+    "websiteUrl": ""
   },
   {
     "name": "Heliware",
     "logoSrc": "/assets/images/heliware-no-bg.png",
-    "description": "Company C description here.",
-    "websiteUrl": "https://www.heliware.co.in/"
-  },
-  {
-    "name": "UpContent",
-    "logoSrc": "/assets/images/upcontent-icon.webp",
-    "description": "Company C description here.",
-    "websiteUrl": "https://www.upcontent.com/"
+    "description": "Company description here.",
+    "websiteUrl": ""
   }
 ]
