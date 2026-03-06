@@ -266,7 +266,7 @@ const Home = () => {
                       color: '#06B6D4',
                       textShadow: '0 0 30px rgba(6, 182, 212, 0.5), 0 0 60px rgba(6, 182, 212, 0.3)'
                     }}>
-                    {companyData.length}+
+                    {Math.max(companyData.length, 14)}+
                   </div>
                   <div className="text-white text-lg font-semibold tracking-wide" style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: '600' }}>Portfolio Companies</div>
                 </div>
